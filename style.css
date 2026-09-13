@@ -1,0 +1,598 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f3f8fa;
+  color:#19323c;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.hidden{
+  display:none !important;
+}
+
+
+/* LOGIN */
+
+.login-screen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top left,#a9e8ee,transparent 35%),
+    linear-gradient(135deg,#e9f8fa,#f9ffff);
+}
+
+.login-card{
+  width:100%;
+  max-width:430px;
+  padding:38px 30px;
+  background:rgba(255,255,255,.95);
+  border-radius:28px;
+  box-shadow:0 20px 60px rgba(0,70,90,.15);
+  text-align:center;
+}
+
+.logo{
+  width:75px;
+  height:75px;
+  margin:auto;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  background:#d9f5f7;
+}
+
+.logo.small{
+  width:55px;
+  height:55px;
+  font-size:28px;
+}
+
+.login-card h1{
+  margin-top:18px;
+  color:#176b87;
+}
+
+.login-card p{
+  margin:8px 0 25px;
+  color:#71838a;
+}
+
+.input-group{
+  text-align:left;
+  margin:15px 0;
+}
+
+.input-group label{
+  display:block;
+  margin-bottom:7px;
+  font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:15px;
+  border:1px solid #d8e5e8;
+  border-radius:13px;
+  background:#fff;
+  outline:none;
+  font-size:16px;
+}
+
+input:focus,select:focus{
+  border-color:#2196b5;
+}
+
+.primary-btn,
+.otp-btn{
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  margin-top:10px;
+  font-size:16px;
+}
+
+.primary-btn{
+  background:#176b87;
+  color:white;
+}
+
+.otp-btn{
+  background:#e5f5f7;
+  color:#176b87;
+}
+
+.message{
+  min-height:20px;
+  margin:12px !important;
+  color:#d33 !important;
+}
+
+
+/* TOPBAR */
+
+.topbar{
+  background:white;
+  padding:16px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 2px 15px #dce9ec;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.topbar h2{
+  color:#176b87;
+}
+
+.topbar span{
+  color:#789098;
+  font-size:12px;
+}
+
+.logout{
+  padding:10px 16px;
+  border-radius:10px;
+  background:#ffe7e7;
+  color:#c0392b;
+}
+
+
+/* MAIN */
+
+main{
+  width:90%;
+  max-width:1200px;
+  margin:30px auto;
+}
+
+.welcome{
+  background:linear-gradient(135deg,#176b87,#28a6ad);
+  color:white;
+  padding:30px;
+  border-radius:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.welcome p{
+  opacity:.85;
+  margin-top:8px;
+}
+
+.time-box{
+  font-size:25px;
+  font-weight:bold;
+}
+
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin:20px 0;
+}
+
+.stat-card{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 5px 20px #dfeaec;
+}
+
+.stat-card span{
+  font-size:27px;
+}
+
+.stat-card strong{
+  display:block;
+  font-size:25px;
+  margin-top:10px;
+}
+
+.stat-card small{
+  color:#819299;
+}
+
+
+/* TABS */
+
+.tabs{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  margin:20px 0;
+}
+
+.tab{
+  white-space:nowrap;
+  padding:13px 18px;
+  border-radius:12px;
+  background:white;
+  color:#48636c;
+}
+
+.tab.active{
+  background:#176b87;
+  color:white;
+}
+
+
+/* SECTIONS */
+
+.section-title{
+  margin:25px 0;
+}
+
+.section-title h2{
+  color:#176b87;
+}
+
+.section-title p{
+  color:#7a8d94;
+  margin-top:5px;
+}
+
+
+/* FEATURES */
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.feature-card{
+  background:white;
+  padding:25px;
+  border-radius:22px;
+  box-shadow:0 7px 25px #dfeaec;
+}
+
+.feature-icon{
+  font-size:40px;
+}
+
+.feature-card h3{
+  margin:14px 0 7px;
+}
+
+.feature-card p{
+  color:#71858c;
+  min-height:42px;
+}
+
+.feature-card button,
+.game-card button,
+.setting-card button{
+  background:#176b87;
+  color:white;
+  padding:11px 15px;
+  border-radius:10px;
+  margin-top:15px;
+}
+
+
+/* EMERGENCY */
+
+.emergency-card{
+  margin-top:20px;
+  padding:25px;
+  border-radius:20px;
+  background:#fff0f0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.emergency-card button{
+  background:#d93434;
+  color:white;
+  padding:15px 22px;
+  border-radius:12px;
+}
+
+
+/* GAMES */
+
+.game-menu{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.game-card{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 7px 25px #dfeaec;
+}
+
+.game-card span{
+  font-size:40px;
+}
+
+.game-card p{
+  color:#71858c;
+  margin-top:8px;
+}
+
+.game-area{
+  margin-top:25px;
+  padding:30px;
+  min-height:200px;
+  background:white;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 7px 25px #dfeaec;
+}
+
+
+/* REMINDERS */
+
+.reminder-form{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.2fr auto;
+  gap:10px;
+}
+
+.reminder-form button{
+  background:#176b87;
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+}
+
+.reminder-item{
+  background:white;
+  margin-top:12px;
+  padding:18px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 5px 15px #e0eaec;
+}
+
+.reminder-info h3{
+  margin-bottom:5px;
+}
+
+.reminder-info p{
+  color:#71858c;
+}
+
+.delete-btn{
+  background:#ffe7e7;
+  color:#c0392b;
+  padding:9px 12px;
+  border-radius:9px;
+}
+
+
+/* PROGRESS */
+
+.progress-card{
+  background:white;
+  padding:30px;
+  border-radius:22px;
+  text-align:center;
+}
+
+.progress-circle{
+  width:150px;
+  height:150px;
+  margin:20px auto;
+  border-radius:50%;
+  background:#dff4f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.progress-circle span{
+  font-size:40px;
+  font-weight:bold;
+  color:#176b87;
+}
+
+.progress-bars{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  margin-top:20px;
+}
+
+.progress-bars > div{
+  margin:20px 0;
+}
+
+.bar{
+  height:13px;
+  background:#e4edef;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.bar span{
+  display:block;
+  height:100%;
+  width:0;
+  background:#28a6ad;
+  transition:1s;
+}
+
+
+/* SETTINGS */
+
+.setting-card{
+  background:white;
+  padding:22px;
+  margin:15px 0;
+  border-radius:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.setting-card select{
+  max-width:300px;
+}
+
+.developer{
+  margin-top:30px;
+  background:#e6f7f8;
+  padding:30px;
+  border-radius:22px;
+  text-align:center;
+}
+
+.developer .logo{
+  margin-bottom:10px;
+}
+
+
+/* ALARM */
+
+.alarm-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.alarm-box{
+  width:100%;
+  max-width:430px;
+  background:white;
+  padding:35px;
+  border-radius:30px;
+  text-align:center;
+  animation:alarmPop .4s;
+}
+
+.alarm-icon{
+  font-size:70px;
+  animation:ring .6s infinite alternate;
+}
+
+.alarm-box h1{
+  color:#d93434;
+  margin:15px;
+}
+
+.alarm-box button{
+  width:100%;
+  padding:16px;
+  background:#176b87;
+  color:white;
+  border-radius:13px;
+  margin-top:20px;
+  font-size:17px;
+}
+
+@keyframes alarmPop{
+  from{
+    transform:scale(.7);
+  }
+  to{
+    transform:scale(1);
+  }
+}
+
+@keyframes ring{
+  from{
+    transform:rotate(-8deg);
+  }
+  to{
+    transform:rotate(8deg);
+  }
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .game-menu{
+    grid-template-columns:1fr;
+  }
+
+  .reminder-form{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  main{
+    width:94%;
+  }
+
+  .welcome{
+    padding:22px;
+  }
+
+  .welcome h1{
+    font-size:23px;
+  }
+
+  .time-box{
+    font-size:18px;
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    gap:10px;
+  }
+
+  .stat-card{
+    padding:15px;
+  }
+
+  .setting-card{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+
+}

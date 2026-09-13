@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b87">
+
+  <title>NER MindCare</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     LOGIN SCREEN
+===================================================== -->
+
+<section id="loginScreen" class="login-screen">
+
+  <div class="login-card">
+
+    <div class="logo">🧠</div>
+
+    <h1>NER MindCare</h1>
+
+    <p>AI Cognitive Care & Memory Support</p>
+
+    <div class="input-group">
+
+      <label>Email</label>
+
+      <input
+        id="loginUser"
+        type="email"
+        placeholder="Enter your email"
+        autocomplete="email"
+      >
+
+    </div>
+
+    <div class="input-group">
+
+      <label>Password</label>
+
+      <input
+        id="loginPassword"
+        type="password"
+        placeholder="Enter password"
+        autocomplete="current-password"
+      >
+
+    </div>
+
+    <button
+      class="primary-btn"
+      type="button"
+      onclick="login()"
+    >
+      Login
+    </button>
+
+    <button
+      class="otp-btn"
+      type="button"
+      onclick="otpLogin()"
+    >
+      🔐 Login with OTP
+    </button>
+
+    <p
+      id="loginMessage"
+      class="message"
+    ></p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN APP
+===================================================== -->
+
+<section id="app" class="hidden">
+
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <div>
+
+      <h2>🧠 NER MindCare</h2>
+
+      <span>
+        Developed by DIPAK MAURYA
+      </span>
+
+    </div>
+
+    <button
+      class="logout"
+      type="button"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+
+  </header>
+
+
+  <!-- =====================================================
+       DASHBOARD
+  ===================================================== -->
+
+  <main>
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+      <div>
+
+        <h1 id="helloText">
+          Good Morning 👋
+        </h1>
+
+        <p>
+          Your daily cognitive wellness companion
+        </p>
+
+      </div>
+
+      <div
+        class="time-box"
+        id="clock"
+      >
+        00:00
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         QUICK STATS
+    ================================================= -->
+
+    <div class="stats">
+
+      <div class="stat-card">
+
+        <span>🧠</span>
+
+        <strong id="score">
+          0
+        </strong>
+
+        <small>
+          Brain Score
+        </small>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span>🎮</span>
+
+        <strong id="gamesPlayed">
+          0
+        </strong>
+
+        <small>
+          Games Played
+        </small>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span>💧</span>
+
+        <strong id="waterCount">
+          0
+        </strong>
+
+        <small>
+          Water Today
+        </small>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span>⏰</span>
+
+        <strong id="reminderCount">
+          0
+        </strong>
+
+        <small>
+          Reminders
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================= -->
+
+    <nav class="tabs">
+
+      <button
+        class="tab active"
+        type="button"
+        onclick="showSection('home',this)"
+      >
+        🏠 Home
+      </button>
+
+
+      <button
+        class="tab"
+        type="button"
+        onclick="showSection('games',this)"
+      >
+        🧠 Games
+      </button>
+
+
+      <button
+        class="tab"
+        type="button"
+        onclick="showSection('reminders',this)"
+      >
+        ⏰ Reminders
+      </button>
+
+
+      <button
+        class="tab"
+        type="button"
+        onclick="showSection('progress',this)"
+      >
+        📊 Progress
+      </button>
+
+
+      <button
+        class="tab"
+        type="button"
+        onclick="showSection('settings',this)"
+      >
+        ⚙️ Settings
+      </button>
+
+    </nav>
+
+
+    <!-- =================================================
+         HOME
+    ================================================= -->
+
+    <section
+      id="home"
+      class="page"
+    >
+
+      <div class="section-title">
+
+        <h2>
+          Today's Care
+        </h2>
+
+        <p>
+          Simple activities for a healthy mind
+        </p>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+
+        <!-- MEDICINE -->
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            💊
+          </div>
+
+          <h3>
+            Medicine
+          </h3>
+
+          <p>
+            Never forget your medicine.
+          </p>
+
+          <button
+            type="button"
+            onclick="quickReminder('Medicine')"
+          >
+            Set Reminder
+          </button>
+
+        </div>
+
+
+        <!-- HYDRATION -->
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            💧
+          </div>
+
+          <h3>
+            Hydration
+          </h3>
+
+          <p>
+            Keep your body hydrated.
+          </p>
+
+          <button
+            type="button"
+            onclick="drinkWater()"
+          >
+            I Drank Water
+          </button>
+
+        </div>
+
+
+        <!-- MEMORY -->
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            🧠
+          </div>
+
+          <h3>
+            Memory Training
+          </h3>
+
+          <p>
+            Exercise your memory every day.
+          </p>
+
+          <button
+            type="button"
+            onclick="openGames()"
+          >
+            Play Game
+          </button>
+
+        </div>
+
+
+        <!-- VOICE -->
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            🎤
+          </div>
+
+          <h3>
+            Voice Assistant
+          </h3>
+
+          <p>
+            Speak to set a reminder.
+          </p>
+
+          <button
+            type="button"
+            onclick="startVoice()"
+          >
+            🎙️ Speak
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- EMERGENCY -->
+
+      <div class="emergency-card">
+
+        <div>
+
+          <h2>
+            🚨 Emergency Support
+          </h2>
+
+          <p>
+            Contact your registered caregiver.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          onclick="emergency()"
+        >
+          Emergency
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         GAMES
+    ================================================= -->
+
+    <section
+      id="games"
+      class="page hidden"
+    >
+
+      <div class="section-title">
+
+        <h2>
+          🧠 Cognitive Games
+        </h2>
+
+        <p>
+          Train memory, attention and concentration
+        </p>
+
+      </div>
+
+
+      <div class="game-menu">
+
+
+        <!-- MEMORY MATCH -->
+
+        <div
+          class="game-card"
+          onclick="startMemoryGame()"
+        >
+
+          <span>
+            🃏
+          </span>
+
+          <h3>
+            Memory Match
+          </h3>
+
+          <p>
+            Remember matching objects.
+          </p>
+
+          <button type="button">
+            Start
+          </button>
+
+        </div>
+
+
+        <!-- NUMBER MEMORY -->
+
+        <div
+          class="game-card"
+          onclick="startNumberGame()"
+        >
+
+          <span>
+            🔢
+          </span>
+
+          <h3>
+            Number Memory
+          </h3>
+
+          <p>
+            Remember the number.
+          </p>
+
+          <button type="button">
+            Start
+          </button>
+
+        </div>
+
+
+        <!-- PATTERN -->
+
+        <div
+          class="game-card"
+          onclick="startPatternGame()"
+        >
+
+          <span>
+            🎨
+          </span>
+
+          <h3>
+            Pattern Game
+          </h3>
+
+          <p>
+            Find the correct pattern.
+          </p>
+
+          <button type="button">
+            Start
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="gameArea"
+        class="game-area"
+      >
+
+        <h2>
+          Choose a game above 👆
+        </h2>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         REMINDERS
+    ================================================= -->
+
+    <section
+      id="reminders"
+      class="page hidden"
+    >
+
+      <div class="section-title">
+
+        <h2>
+          ⏰ My Reminders
+        </h2>
+
+        <p>
+          Medicine, hydration and daily activities
+        </p>
+
+      </div>
+
+
+      <div class="reminder-form">
+
+        <input
+          id="reminderTitle"
+          type="text"
+          placeholder="Reminder name"
+        >
+
+
+        <input
+          id="reminderTime"
+          type="time"
+        >
+
+
+        <select id="reminderType">
+
+          <option>💊 Medicine</option>
+
+          <option>💧 Hydration</option>
+
+          <option>🏃 Exercise</option>
+
+          <option>🏥 Appointment</option>
+
+          <option>📝 Daily Activity</option>
+
+        </select>
+
+
+        <button
+          type="button"
+          onclick="addReminder()"
+        >
+          ＋ Add Reminder
+        </button>
+
+      </div>
+
+
+      <div id="reminderList"></div>
+
+    </section>
+
+
+    <!-- =================================================
+         PROGRESS
+    ================================================= -->
+
+    <section
+      id="progress"
+      class="page hidden"
+    >
+
+      <div class="section-title">
+
+        <h2>
+          📊 Cognitive Progress
+        </h2>
+
+        <p>
+          Your activity summary
+        </p>
+
+      </div>
+
+
+      <div class="progress-card">
+
+        <h3>
+          Brain Score
+        </h3>
+
+
+        <div class="progress-circle">
+
+          <span id="progressScore">
+            0
+          </span>
+
+        </div>
+
+
+        <p>
+          Keep playing cognitive games regularly.
+        </p>
+
+      </div>
+
+
+      <div class="progress-bars">
+
+
+        <div>
+
+          <label>
+            Memory
+          </label>
+
+          <div class="bar">
+
+            <span id="memoryBar"></span>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Attention
+          </label>
+
+          <div class="bar">
+
+            <span id="attentionBar"></span>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Daily Activity
+          </label>
+
+          <div class="bar">
+
+            <span id="activityBar"></span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SETTINGS
+    ================================================= -->
+
+    <section
+      id="settings"
+      class="page hidden"
+    >
+
+      <div class="section-title">
+
+        <h2>
+          ⚙️ Settings
+        </h2>
+
+        <p>
+          Customize your MindCare experience
+        </p>
+
+      </div>
+
+
+      <!-- LANGUAGE -->
+
+      <div class="setting-card">
+
+        <label>
+          🌐 Language
+        </label>
+
+
+        <select
+          id="language"
+          onchange="changeLanguage()"
+        >
+
+          <option value="en">
+            English
+          </option>
+
+          <option value="hi">
+            हिन्दी
+          </option>
+
+          <option value="as">
+            অসমীয়া (Assamese)
+          </option>
+
+          <option value="bn">
+            বাংলা (Bengali)
+          </option>
+
+          <option value="mni">
+            ꯃꯤꯇꯩ ꯂꯣꯟ (Meitei)
+          </option>
+
+          <option value="kh">
+            Khasi
+          </option>
+
+          <option value="lus">
+            Mizo
+          </option>
+
+          <option value="brx">
+            Bodo
+          </option>
+
+          <option value="nag">
+            Nagamese
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- VOICE -->
+
+      <div class="setting-card">
+
+        <label>
+          🔊 Voice Assistant
+        </label>
+
+        <button
+          type="button"
+          onclick="startVoice()"
+        >
+          🎤 Start Voice Assistant
+        </button>
+
+      </div>
+
+
+      <!-- NOTIFICATIONS -->
+
+      <div class="setting-card">
+
+        <label>
+          🔔 Notifications
+        </label>
+
+        <button
+          type="button"
+          onclick="requestNotifications()"
+        >
+          Enable Notifications
+        </button>
+
+      </div>
+
+
+      <!-- DEVELOPER -->
+
+      <div class="developer">
+
+        <div class="logo small">
+          🧠
+        </div>
+
+        <h2>
+          NER MindCare
+        </h2>
+
+        <p>
+          Developed by <b>DIPAK MAURYA</b>
+        </p>
+
+        <small>
+          AI-powered cognitive assistance prototype
+        </small>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</section>
+
+
+<!-- =====================================================
+     ALARM MODAL
+===================================================== -->
+
+<div
+  id="alarmModal"
+  class="alarm-modal hidden"
+>
+
+  <div class="alarm-box">
+
+    <div class="alarm-icon">
+      ⏰
+    </div>
+
+    <h1>
+      Reminder!
+    </h1>
+
+    <h2 id="alarmTitle">
+      Medicine Time
+    </h2>
+
+    <p id="alarmDescription">
+      It's time for your scheduled activity.
+    </p>
+
+    <button
+      type="button"
+      onclick="stopAlarm()"
+    >
+      ✓ Done
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE SDK
+===================================================== -->
+
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+
+
+<!-- =====================================================
+     FIREBASE CONFIG
+===================================================== -->
+
+<script>
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDstknF6H_awv8VSF9Cr3o7HmwGiEB3gcE",
+
+  authDomain: "ner-mindcare.firebaseapp.com",
+
+  projectId: "ner-mindcare",
+
+  storageBucket: "ner-mindcare.firebasestorage.app",
+
+  messagingSenderId: "95861125835",
+
+  appId: "1:95861125835:web:f1b2a4a849dc5eb978a14e",
+
+  measurementId: "G-V43RY0SBW2"
+
+};
+
+
+firebase.initializeApp(firebaseConfig);
+
+
+const auth = firebase.auth();
+
+const db = firebase.firestore();
+
+</script>
+
+
+<!-- =====================================================
+     MAIN JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
